@@ -1,4 +1,6 @@
-# Báo cáo Day 08 — <<MSHV - Họ và tên>>
+# Báo cáo Day 08 — 2A202603178 - Nguyễn Cao Ngọc Đức
+
+Lớp: L2 · Email: 26ai.ducncn@vinuni.edu.vn
 
 > Một file duy nhất cho cả bài (đã gộp recipe, QC và ghi chú cá nhân). Mọi con số kèm **mẫu số** và nguồn (file nào). Viết bằng lời của bạn.
 

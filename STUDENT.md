@@ -1,13 +1,15 @@
 # Thông tin học viên
 
-- Họ và tên: <<>>
-- MSHV: <<>>
-- Lớp (L2 / L3 / khác): <<>>
-- Tài khoản GitHub: <<>>
-- Repo bài nộp (URL): <<>>
+- Họ và tên: Nguyễn Cao Ngọc Đức
+- MSHV: 2A202603178
+- Lớp (L2 / L3 / khác): L2
+- Email: 26ai.ducncn@vinuni.edu.vn
+- Tài khoản GitHub: https://github.com/ducnguyen-ai
+- Repo hiện tại: https://github.com/ducnguyen-ai/K5-L23-Day08-NguyenCaoNgocDuc-2A202603178-AI-Assisted-Labeling
+- Tên repo theo SUBMISSION.md khi chốt: K5-L23-DAY08-2A202603178-NguyenCaoNgocDuc-AIPrelabel
 - Commit chốt bài (hash): <<>>
-- Máy: <<hệ điều hành, GPU (CUDA / MPS / không có)>>
-- CVAT (Docker): <<phiên bản, ví dụ v2.81.0>>
+- Máy: Windows 11 Home; Ryzen 7 7435HS; RAM 16 GB; RTX 4060 Laptop 8 GB (CUDA)
+- CVAT (Docker): v2.74.1, http://localhost:8081; project Day08-178; task gold 24 / job 23
 
 ## Kết quả tóm tắt (điền cuối bài; số lấy từ `submission/qc/*`, kèm mẫu số)
 
