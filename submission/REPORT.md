@@ -71,9 +71,9 @@ Nếu Rework / Hold, việc cần làm tiếp: <<>>
 
 ## 8. Ghi chú cá nhân
 
-- **Dùng AI để làm bài** (công cụ nào, việc gì, kiểm tra thế nào; "không dùng" nếu không): <<>>
-- Gold có bị nhiễm không (bạn có nhìn pre-label hay hỏi AI trước khi gán xong)? <<không / có, như sau: ...>>
-- Máy / GPU / CVAT dùng; vướng mắc cài đặt: <<>>
-- Dùng cache `data/cache/` thay vì tự chạy? <<không / có, vì ...>>
-- Lỗi / bug script đã gặp (nếu có): <<>>
+- **Dùng AI để làm bài:** Codex hỗ trợ môi trường, lệnh chạy model local, xuất/kiểm schema nhãn, chuẩn bị giao diện xem ảnh và bấm giờ. Nhận xét model, review ảnh, quyết định calibration và kết luận báo cáo còn chờ học viên thực hiện/xác nhận.
+- **Giới hạn tính độc lập của gold:** trước khi hoàn thành gán, học viên đã gửi screenshot hỏi chatbot về gương xe, box người/xe máy và ignore_region. Cần ghi nhận hỗ trợ này khi diễn giải số đo, không khẳng định gold hoàn toàn độc lập với AI. Trong luồng chạy đã lưu, gold được xuất và sửa theo kiểm tra kích thước trước khi chạy model lên gold; bản hash cuối được giữ ở labels/gold_provenance.json.
+- Máy: Windows11, RTX4060Laptop8GB, RAM16GB; PyTorch2.10.0+cu128, Ultralytics8.4.214, CVAT2.74.1 tại localhost:8081. Venv tái sử dụng thư viện GPU hiện có; đã sửa đường dẫn .pth bị cũ sau đổi tên thư mục. Không cài thêm CVAT.
+- Không dùng cache data/cache: r01–r06 là suy luận thật trên GPU local; số kỹ thuật lưu ở model_log.csv và work/runs.csv. Các ô nhận xét còn trống chưa được coi là đã quan sát.
+- Chưa sửa thuật toán script đề. Thêm scripts/prepare_model_tour.py để tạo trang xem ảnh/nhận xét local và đồng hồ review; launcher đặt YOLO_CONFIG_DIR riêng. File đề, taxonomy.rules, data/split.csv và ảnh nguồn giữ nguyên.
 - Một điều bạn làm khác lần sau: <<>>

@@ -1,0 +1,13 @@
+{
+  "server": "http://localhost:8081",
+  "project_id": 2,
+  "task_id": 26,
+  "job_id": 25,
+  "images": 24,
+  "imported_shapes": 567,
+  "format": "COCO 1.0",
+  "file": "pre_traps_import.coco.json",
+  "sha256": "c9641ed153cdf5cb7fad9325f8ec7785aceb3db10be9528ed231497758d8daea",
+  "imported_at_utc": "2026-11-19T04:09:33.440018+00:00",
+  "review_complete": false
+}

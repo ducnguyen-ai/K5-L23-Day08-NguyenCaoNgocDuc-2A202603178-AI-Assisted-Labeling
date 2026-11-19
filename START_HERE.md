@@ -1,52 +1,50 @@
-# Bắt đầu Day08 trên máy này
+# Day08 — Tiếp tục sau gold
 
-Nguyễn Cao Ngọc Đức — 2A202603178 — L2 — 26ai.ducncn@vinuni.edu.vn
+Nguyễn Cao Ngọc Đức — 2A202603178 — L2
 
-## Trạng thái
+## Đã hoàn thành có bằng chứng
 
-- Đã đọc GUIDE.md, RULES.md, SUBMISSION.md, rubric và label contract v1.0.
-- Môi trường `.venv` dùng lại PyTorch CUDA hiện có; không cài thêm bản torch hoặc CVAT.
-- `check_env.py` đạt tất cả mục bắt buộc, GPU RTX 4060 và CVAT 8081 hoạt động.
-- Model: YOLO26m (mới tải, SHA256 xác nhận theo release chính thức), YOLOE-26s-seg, SAM2.1-base. Ba file YOLOE/SAM/text encoder dùng hard link tới kho có sẵn, không nhân đôi dung lượng.
-- SAM3 vẫn giữ ở F:\Projects\SAM3. Đây là phần tùy chọn; bài chính dùng SAM2 cho click-mask. Cảnh báo token Windows trong check_env không chặn bài chính, không có nghĩa quyền HF đã bị mất.
-- Các bản YOLO26n/s, MobileSAM, cache cài đặt dở đã được dọn ở đợt trước; nhật ký tại F:\Projects\day08\logs\cleanup-*.json. YOLO11m/EfficientSAM3/SegFormer dùng cho bài cũ vẫn giữ để tái lập kết quả.
-- Chưa chạy suy luận hay đọc nội dung 4 ảnh gold. Chưa có metric, thời gian gán tay hoặc kết luận Release.
+- Gold: img_001, img_012, img_020, img_036; học viên xác nhận đã sửa các box nhỏ, xuất lại từ task24/job23. Validate: 4 ảnh, 72 đối tượng, OK. Lịch sử hash: submission/labels/gold_provenance.json.
+- Thời gian gold do học viên cung cấp: 60 phút/4 ảnh. Chưa có thời gian review batch.
+- Chạy local RTX4060: YOLO26m hai ngưỡng, YOLOE three_wheeler, YOLO26m + SAM2.1-base. Bốn lượt tour r01–r04 có ảnh minh họa; chưa có nhận xét của học viên.
+- Chạy thêm YOLO26m và YOLOE trên 36 ảnh ở conf0.05; threshold_sweep trên bản gold đã sửa. Chuỗi ngưỡng: motorbike=0.2,three_wheeler=0.15; mặc định0.3. Không phải mọi lớp đều đạt recall90%.
+- Merge YOLOE trước YOLO26, IoU0.6, 28 ảnh batch+gold. Chèn 12 bẫy theo MSHV2A202603178 bằng script đề. Chưa mở đáp án.
+- CVAT hiện có: [job batch review](http://localhost:8081/tasks/26/jobs/25), 24 ảnh, 567 box nhập từ pre_traps_import.coco.json. Không ghi đè job gold hay bài cũ.
 
-## Việc cần làm ngay: gán tay gold
+## Bạn làm ngay
 
-Mở [job gold trong CVAT](http://localhost:8081/tasks/24/jobs/23), đăng nhập tài khoản ducncn đang dùng.
-Task chỉ có **img_001.jpg, img_012.jpg, img_020.jpg, img_036.jpg**. Gán cả 4, không dùng AI Tools/pre-label. Bấm giờ thực tế từ khi bắt đầu đến khi xong; không lấy thời gian setup làm thời gian gán.
+1. Mở `work/model_tour/index.html`, bấm từng ảnh để xem lớn. Ghi 3 nhận xét cho mỗi lượt r01–r04, tải day08-model-observations.json rồi gửi lại. Ít box hơn không tự chứng minh tốt hơn.
+2. Mở `work/model_tour/review-timer.html`. Bấm Bắt đầu khi bắt đầu review; Tạm dừng khi nghỉ. Mở job batch bằng link trong trang.
+3. Mỗi ảnh: ẩn nhãn → quét ảnh → hiện nhãn → tìm bỏ sót → xóa thừa → sửa lớp → chỉnh box. Người và phương tiện có box riêng; box sát phần nhìn thấy. Nhãn vẽ tay conf trống; giữ conf của máy. can_review dành cho ca chưa chắc quy tắc.
+4. Sau mỗi khoảng 10 ảnh, nghỉ và tạm dừng đồng hồ. Khi xong đủ 24 ảnh: Save trong CVAT, dừng/tải day08-batch-time.json và báo đã xong. Có thể gửi file thời gian; tôi sẽ xuất nhãn từ CVAT.
+5. Không mở submission/prelabel/traps_key.json trước khi xuất batch_reviewed.json. Không dùng lại gold để làm batch.
 
-Theo `guideline/guideline_v1.0_label_contract.md`:
-- Nhãn: person, bicycle, motorbike, car, bus, truck, three_wheeler, ignore_region.
-- Vẽ box sát phần nhìn thấy, không đoán phần bị che; người ngồi xe là box person riêng.
-- Bán tải thuộc car; tuk-tuk/xích lô/ba gác thuộc three_wheeler. Không dùng quy tắc Day07 thay cho Day08.
-- Bỏ vật nhỏ hơn điều kiện ở mục 4 và vật còn nhìn thấy dưới 20%; không gán tượng, ảnh quảng cáo hoặc phản chiếu.
-- Nhãn vẽ tay để conf trống. Tick can_review khi chưa chắc quy tắc và ghi ca đó để calibration.
+## Các phần còn lại
 
-Lưu CVAT, xuất **COCO 1.0**, không kèm ảnh. Đặt JSON nhãn tại `submission/labels/gold_manual.json` (giải nén file xuất nếu cần). Khi xong báo lại thời gian gán thực tế và các ca chưa chắc; lúc đó mới chạy các bước máy.
+- Sau review: validate, review_stats và tỷ lệ bắt bẫy; không coi pre-label là nhãn đã duyệt.
+- Ba ví dụ SAM click-mask: bạn chọn vật và nhận xét mask (có ôm người/hàng hóa không).
+- Ít nhất ba quyết định calibration, gồm lỗi máy và câu hỏi quy tắc; guidelinev1.1 phải khớp quyết định của bạn.
+- QC mẫu5ảnh, báo cáo và quyết định theo số liệu; chạy check_submission, push kết quả. Bài chưa đủ điều kiện chốt nộp hoàn chỉnh.
 
-## Lệnh kiểm tra
-
-Mở PowerShell trong thư mục repo:
+## Tái lập
 
 ```powershell
 .\run-day08.ps1 check
+.\run-day08.ps1 script prepare_model_tour.py
 ```
 
-Không cần kích hoạt venv thủ công. Launcher `script` chạy đúng các script chính thức và chặn prelabel trước khi có file gold:
+Lệnh merge đã dùng:
 
 ```powershell
-.\run-day08.ps1 script prelabel.py --model yolo26 --size m --split pilot --conf 0.25 --out work/prelabel/t_y26
+.\run-day08.ps1 script merge_prelabels.py work/prelabel/yoloe_all/pre.coco.json work/prelabel/y26_all/pre.coco.json --thr "motorbike=0.2,three_wheeler=0.15" --conf .3 --iou .6 --split "batch,gold" --out work/prelabel/merged_review/pre.coco.json
 ```
 
-## Các bước tiếp theo sau gold
+Không chạy lại inject_traps hoặc nhập đè task26 sau khi bắt đầu review. Giữ tên repo có NguyenCaoNgocDuc trước MSHV theo yêu cầu cá nhân.
 
-1. Validate và giữ bản gold trước lần chạy model đầu tiên; commit Part 1.
-2. Chạy ít nhất 4 lần theo GUIDE: YOLO26m hai ngưỡng, YOLOE three_wheeler, YOLO26 + SAM2. Xem output rồi điền model_log bằng quan sát thực tế.
-3. Sweep ngưỡng trên gold; merge pre-label; inject 12 bẫy với seed 2A202603178. Không mở traps_key trước khi xuất bản batch đã duyệt.
-4. Import đúng 24 ảnh batch vào CVAT, duyệt và đo thời gian thật; xuất batch_reviewed.json rồi tính review_stats.
-5. Tạo ít nhất 3 ví dụ SAM click-mask, chốt ít nhất 3 ca calibration, QC mẫu theo hướng dẫn, chạy kiểm tra bài nộp và hoàn thiện báo cáo bằng kết quả thật.
-6. Đổi tên repo theo SUBMISSION.md trước khi chốt link; không coi repo hiện tại là bài đã hoàn thành.
+## Kiến thức cần nắm
 
-Không cần bật Nuclio để hoàn thành luồng offline bắt buộc của bài này.
+Gold đo chất lượng máy; batch có bẫy đo cả khả năng review. Confidence không phải xác suất đúng. Đổi ngưỡng cân bằng precision/recall nhưng không chữa được sai lớp hoặc vật hoàn toàn không tìm thấy. Chọn và chấm trên cùng4ảnh gold làm số đo lạc quan. Accepted cao không chứng minh không bỏ sót; cần xem added, recall và bẫy. Mask phải được kiểm theo biên và label contract. QC mẫu nhỏ không bảo đảm toàn bộ lô sạch.
+
+## Bonus
+
+RUBRIC cho tối đa +5 từ docs/ADVANCED.md. Hiện chưa xác nhận hoàn thành bonus. Có thể chọn pilot độc lập, mask8ảnh, tích hợp CVAT hoặc gán lại mù; mỗi lựa chọn cần quan sát/nhãn và bằng chứng thật. Không cài thêm model chỉ để có tên trong log. Chốt bài cốt lõi trước.
