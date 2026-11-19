@@ -1,0 +1,29 @@
+{
+  "recorded_at": "2026-11-19T04:42:38.706Z",
+  "observations": [
+    {
+      "run_id": "r01",
+      "what_went_right": "ảnh 002, xe bên phải là car, không phải là truck \nảnh 007, tất cả các xe hàng bên trái vỉa hè mà được gán motorbike, đều là xích lô hết, hay còn là three_wheeler, nên gán lại\nảnh \nảnh 11, thì xe bên trái ảnh không phải là truck, mà là tuk_tuk\nảnh 15, bicycle bị gán thành 2 box, nên gán lại thành 1 box\nảnh 16, car 0.73, đó là van không phải car, phải gán lại \nảnh 19, truck 0.45, đổi thành car, vì đấy không phải là truck\nảnh 30, car bên phải là bị gán thành 2 box, phải gán lại \nảnh 32, các nhãn gán bicycle cái đấy cũng đều là xích lô, three_wheeler",
+      "what_went_wrong": "ảnh 002, bỏ sót xe xanh lá cây ở giữa, gán là tuk_tuk",
+      "decision": "."
+    },
+    {
+      "run_id": "r02",
+      "what_went_right": "mình thấy gán đúng hết, nhưng mà sai nhãn ở ảnh 32, ảnh 16, ảnh 11, ảnh 002 như r01",
+      "what_went_wrong": ".",
+      "decision": "."
+    },
+    {
+      "run_id": "r03",
+      "what_went_right": "002 gán sai nhãn three wheeler, xe xanh lá cây ở giữa là tuk_tuk\n032 gán thiếu three_wheeler, giữa xe 0,92 và 0,27",
+      "what_went_wrong": ".",
+      "decision": "."
+    },
+    {
+      "run_id": "r04",
+      "what_went_right": "ảnh 004, 3 cái gán nhãn là car thì là tuk_tuk\nảnh 013, gán thiếu person ngồi phía trước xe, gán box car lệch, và xe ở phía bên phải xa thì không nên gán, còn xe ở trên tuk_tuk thì là van",
+      "what_went_wrong": ".",
+      "decision": "."
+    }
+  ]
+}

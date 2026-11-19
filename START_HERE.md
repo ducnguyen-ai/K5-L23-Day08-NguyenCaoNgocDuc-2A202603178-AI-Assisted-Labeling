@@ -6,14 +6,16 @@ Nguyễn Cao Ngọc Đức — 2A202603178 — L2
 
 - Gold: img_001, img_012, img_020, img_036; học viên xác nhận đã sửa các box nhỏ, xuất lại từ task24/job23. Validate: 4 ảnh, 72 đối tượng, OK. Lịch sử hash: submission/labels/gold_provenance.json.
 - Thời gian gold do học viên cung cấp: 60 phút/4 ảnh. Chưa có thời gian review batch.
-- Chạy local RTX4060: YOLO26m hai ngưỡng, YOLOE three_wheeler, YOLO26m + SAM2.1-base. Bốn lượt tour r01–r04 có ảnh minh họa; chưa có nhận xét của học viên.
+- Chạy local RTX4060: YOLO26m hai ngưỡng, YOLOE three_wheeler, YOLO26m + SAM2.1-base. Bốn lượt tour r01–r04 có ảnh minh họa; đã nhận JSON nhận xét học viên và sắp xếp vào submission/model_log.csv. Các ca van, img_002/r03 và đánh giá biên mask còn cần xác minh.
 - Chạy thêm YOLO26m và YOLOE trên 36 ảnh ở conf0.05; threshold_sweep trên bản gold đã sửa. Chuỗi ngưỡng: motorbike=0.2,three_wheeler=0.15; mặc định0.3. Không phải mọi lớp đều đạt recall90%.
 - Merge YOLOE trước YOLO26, IoU0.6, 28 ảnh batch+gold. Chèn 12 bẫy theo MSHV2A202603178 bằng script đề. Chưa mở đáp án.
 - CVAT hiện có: [job batch review](http://localhost:8081/tasks/26/jobs/25), 24 ảnh, 567 box nhập từ pre_traps_import.coco.json. Không ghi đè job gold hay bài cũ.
 
 ## Bạn làm ngay
 
-1. Mở `work/model_tour/index.html`, bấm từng ảnh để xem lớn. Ghi 3 nhận xét cho mỗi lượt r01–r04, tải day08-model-observations.json rồi gửi lại. Ít box hơn không tự chứng minh tốt hơn.
+Hướng dẫn cụ thể thao tác review: [docs/DAY08_REVIEW_HUONG_DAN.md](docs/DAY08_REVIEW_HUONG_DAN.md).
+
+1. Nhận xét tour đã lưu tại submission/observations/. Xem các ca cần xác minh trong bản sắp xếp; chưa coi các ô chỉ có dấu chấm là quyết định.
 2. Mở `work/model_tour/review-timer.html`. Bấm Bắt đầu khi bắt đầu review; Tạm dừng khi nghỉ. Mở job batch bằng link trong trang.
 3. Mỗi ảnh: ẩn nhãn → quét ảnh → hiện nhãn → tìm bỏ sót → xóa thừa → sửa lớp → chỉnh box. Người và phương tiện có box riêng; box sát phần nhìn thấy. Nhãn vẽ tay conf trống; giữ conf của máy. can_review dành cho ca chưa chắc quy tắc.
 4. Sau mỗi khoảng 10 ảnh, nghỉ và tạm dừng đồng hồ. Khi xong đủ 24 ảnh: Save trong CVAT, dừng/tải day08-batch-time.json và báo đã xong. Có thể gửi file thời gian; tôi sẽ xuất nhãn từ CVAT.
