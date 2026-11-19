@@ -6,7 +6,7 @@ Nguyễn Cao Ngọc Đức — 2A202603178 — L2
 
 - Gold: img_001, img_012, img_020, img_036; học viên xác nhận đã sửa các box nhỏ, xuất lại từ task24/job23. Validate: 4 ảnh, 72 đối tượng, OK. Lịch sử hash: submission/labels/gold_provenance.json.
 - Thời gian gold do học viên cung cấp: 60 phút/4 ảnh. Chưa có thời gian review batch.
-- Chạy local RTX4060: YOLO26m hai ngưỡng, YOLOE three_wheeler, YOLO26m + SAM2.1-base. Bốn lượt tour r01–r04 có ảnh minh họa; đã nhận JSON nhận xét học viên và sắp xếp vào submission/model_log.csv. Các ca van, img_002/r03 và đánh giá biên mask còn cần xác minh.
+- Chạy local RTX4060: YOLO26m hai ngưỡng, YOLOE three_wheeler, YOLO26m + SAM2.1-base. Bốn lượt tour r01–r04 có ảnh minh họa; đã nhận JSON nhận xét học viên và sắp xếp vào submission/model_log.csv. Đã chốt tuk-tuk → three_wheeler, minivan → car. Còn kiểm vị trí/độ đầy đủ box img_002/r03 và đánh giá biên mask.
 - Chạy thêm YOLO26m và YOLOE trên 36 ảnh ở conf0.05; threshold_sweep trên bản gold đã sửa. Chuỗi ngưỡng: motorbike=0.2,three_wheeler=0.15; mặc định0.3. Không phải mọi lớp đều đạt recall90%.
 - Merge YOLOE trước YOLO26, IoU0.6, 28 ảnh batch+gold. Chèn 12 bẫy theo MSHV2A202603178 bằng script đề. Chưa mở đáp án.
 - CVAT hiện có: [job batch review](http://localhost:8081/tasks/26/jobs/25), 24 ảnh, 567 box nhập từ pre_traps_import.coco.json. Không ghi đè job gold hay bài cũ.

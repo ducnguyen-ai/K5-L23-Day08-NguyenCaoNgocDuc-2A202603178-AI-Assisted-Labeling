@@ -23,9 +23,9 @@ Lớp: L2 · Email: 26ai.ducncn@vinuni.edu.vn
 Nguồn nguyên bản và bản sắp xếp: [observations](observations/model_observations_organized.md). Các mục dưới đây là quan sát học viên, không phải xác nhận đã sửa batch.
 
 - r01: ghi nhận nhầm xích lô/tuk-tuk thành motorbike, bicycle hoặc truck ở img_007, img_011, img_032; box trùng ở img_015 và img_030; thiếu tuk-tuk ở img_002.
-- r02: học viên nhận xét các phần còn lại đúng nhưng các ca img_002, img_011, img_032 vẫn sai như r01; ca van img_016 chờ phân loại theo contract.
-- r03: thiếu three_wheeler ở img_032, giữa hai box có điểm0.92 và0.27. Ghi chú img_002 cần làm rõ vì tuk-tuk vốn thuộc three_wheeler.
-- r04: ba tuk-tuk ở img_004 bị gọi car; img_013 thiếu person và có box car lệch. Chưa có nhận xét biên mask; van và xe ở xa còn cần đối chiếu guideline.
+- r02: học viên nhận xét các phần còn lại đúng nhưng các ca img_002, img_011, img_032 vẫn sai như r01; minivan img_016 được học viên xác nhận giữ nhãn car.
+- r03: thiếu three_wheeler ở img_032, giữa hai box có điểm0.92 và0.27. Học viên đã chốt tuk-tuk thuộc three_wheeler; img_002 còn cần kiểm vị trí/độ đầy đủ của box.
+- r04: ba tuk-tuk ở img_004 bị gọi car; img_013 thiếu person và có box car lệch. Minivan giữ car theo xác nhận của học viên. Chưa có nhận xét biên mask; xe ở xa còn cần đối chiếu ngưỡng kích thước/độ che.
 
 Các hướng sửa do học viên đề xuất đã đưa vào model_log.csv. Chưa có quyết định cuối cùng chọn model/ngưỡng hoặc kết luận chất lượng mask từ học viên.
 

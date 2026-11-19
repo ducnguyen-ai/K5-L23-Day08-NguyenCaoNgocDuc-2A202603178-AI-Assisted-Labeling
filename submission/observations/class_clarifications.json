@@ -1,0 +1,10 @@
+{
+  "source": "Xác nhận bổ sung trong chat của học viên",
+  "statement": "vậy thì cho tuk_tuk thuộc three_wheeler đi, nếu như xếp minivan vào car thì gán là car đi",
+  "mapping": {
+    "tuk_tuk": "three_wheeler",
+    "minivan": "car"
+  },
+  "matches_existing_contract": true,
+  "applied_to": "Nhận xét model và hướng sửa; chưa xác nhận đã thay đổi box trong CVAT"
+}
