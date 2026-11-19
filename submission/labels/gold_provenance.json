@@ -1,0 +1,9 @@
+{
+  "source": "CVAT local task24 job23 COCO 1.0 export, no images",
+  "exported_at_utc": "2026-11-19T03:57:31.632063+00:00",
+  "sha256": "5709aa000f12632be8fa8c53ee7dbb006a3c2a523ee76b619f42c691bc392b4c",
+  "n_images": 4,
+  "n_annotations": 78,
+  "minutes_reported_by_student": 60,
+  "frozen_before_prelabel": true
+}
