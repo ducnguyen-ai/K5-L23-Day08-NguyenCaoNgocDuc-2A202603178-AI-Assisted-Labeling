@@ -1,9 +1,21 @@
 {
   "source": "CVAT local task24 job23 COCO 1.0 export, no images",
-  "exported_at_utc": "2026-11-19T03:57:31.632063+00:00",
-  "sha256": "5709aa000f12632be8fa8c53ee7dbb006a3c2a523ee76b619f42c691bc392b4c",
+  "exported_at_utc": "2026-11-19T04:05:58.506870+00:00",
+  "sha256": "f675b63d3f01cd1dc12392956a788b6057b945c916e78ee0196b1b6ae0be49a0",
   "n_images": 4,
-  "n_annotations": 78,
+  "n_annotations": 72,
   "minutes_reported_by_student": 60,
-  "frozen_before_prelabel": true
+  "frozen_before_prelabel": true,
+  "previous_exports": [
+    {
+      "source": "CVAT local task24 job23 COCO 1.0 export, no images",
+      "exported_at_utc": "2026-11-19T03:57:31.632063+00:00",
+      "sha256": "5709aa000f12632be8fa8c53ee7dbb006a3c2a523ee76b619f42c691bc392b4c",
+      "n_images": 4,
+      "n_annotations": 78,
+      "minutes_reported_by_student": 60,
+      "frozen_before_prelabel": true
+    }
+  ],
+  "student_confirmed_corrections": true
 }
