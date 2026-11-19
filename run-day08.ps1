@@ -5,6 +5,7 @@ param(
 )
 $ErrorActionPreference='Stop'
 $env:PYTHONUTF8='1'
+$env:YOLO_CONFIG_DIR=Join-Path $PSScriptRoot 'work/setup/ultralytics_config'
 $python=Join-Path $PSScriptRoot '.venv\Scripts\python.exe'
 Push-Location $PSScriptRoot
 try {
@@ -22,3 +23,4 @@ try {
     $result=$LASTEXITCODE
 } finally { Pop-Location }
 exit $result
+
